@@ -7,7 +7,7 @@
 #define SIZE 1024 // Tamaño buffer de stdin
 #define DEFAULT 10 // Valor predeterminado que se le dara a N
 
-static char*  read_line(FILE* archivo); // Lectura de lineas dinamicamte
+static char*  read_line(FILE* archivo); // Lectura de lineas dinamicamente
 static int    find_short(int *longitudes, int len, int N); // Busca la linea más corta en un array
 
 
@@ -45,11 +45,13 @@ int tail(int N){
     char*   buffer;
     int     i;
     int     print;
+    char**  lineas;
 
     if (N <= 0)
         N = DEFAULT;
+
     // Un array de punteros para ir almacenando las lineas
-    char* lineas[N];
+    lineas = malloc(N * sizeof(char*));
 
     for (i = 0; i < N; i++) {
         lineas[i] = NULL;
@@ -80,6 +82,7 @@ int tail(int N){
         }
     }
 
+    free(lineas);
     return 0;
 }
 
