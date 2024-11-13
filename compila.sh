@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Comprobación de argumentos antes de compilar
+
+if [ $# -ne 0 ]
+then
+	echo "Error: El número de parámetros es incorrecto, Uso: ./compila.sh"
+	exit 1
+fi 
+
 # Proceso de compilación
 
 # Creamos un archivo objeto de nuestro programa
